@@ -4,50 +4,39 @@
 
 <template>
   <div class="toolbar text-controller">
-    <div id="text-to-bold">
-      <button>
+    <div class="button-box text-to-bold">
+      <button type="button" class="click-box">
         <b>B</b>
       </button>
     </div>
-    <div id="text-to-italic">
-      <button>
+    <div class="button-box text-to-italic">
+      <button type="button" class="click-box">
         <i>I</i>
       </button>
     </div>
-    <div id="text-to-underline">
-      <button>
+    <div class="button-box text-to-underline">
+      <button type="button" class="click-box">
         <u>U</u>
       </button>
     </div>
-    <div id="text-to-strikethrough">
-      <button>
-        <s>T</s>
+    <div class="button-box text-to-strikethrough">
+      <button type="button" class="click-box">
+        <s>S</s>
       </button>
     </div>
-    <div id="text-to-color">
-      <button>
-        <span>T</span>
+    <div class="button-box text-to-color">
+      <button type="button" class="click-box">
+        <span><font-awesome-icon :icon="['fas', 'eye-dropper']" /></span>
       </button>
     </div>
-    <div id="text-to-background-color">
-      <button>
-        <span>T</span>
+    <div class="button-box text-to-background-color">
+      <button type="button" class="click-box">
+        <span><font-awesome-icon :icon="['fas', 'highlighter']" /></span>
       </button>
     </div>
   </div>
 </template>
 
 <style scoped>
-  button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    width: 27px;
-    height: 29px;
-    font-size: 16px;
-    border-radius: 3px;
-  }
-  button:hover {
-    background-color: #bdbdbd;
-  }
+
 </style>

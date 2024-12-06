@@ -15,10 +15,11 @@
   textarea {
     width: 100%;
     height: 40px;
+    line-height: 40px;
     padding-bottom: 15px;
     border: none;
     border-bottom: 1px solid #e8e8e8;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     font-family: 'Pretendard GOV Variable', sans-serif;
     outline: none;

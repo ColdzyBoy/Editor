@@ -7,11 +7,9 @@
   <div id="editor-container">
     <EditorToolbar/>
     <div class="main-editor-container">
-    <EditorTitle/>
-      <div
-        id="editor-main"
-        contenteditable="true"
-      >
+      <EditorTitle/>
+      <div id="editor-main"
+           contenteditable="true">
       </div>
     </div>
   </div>
