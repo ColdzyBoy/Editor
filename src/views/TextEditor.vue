@@ -1,6 +1,26 @@
 <script setup lang="ts">
   import EditorToolbar from '../components/EditorToolbar.vue'
   import EditorTitle from '../components/EditorTitle.vue'
+  import ImageElement from '@/components/ImageElement.vue';
+
+  import { useImageState } from '@/function/imageData';
+  import { ref, createApp, watch, h } from 'vue';
+
+  const imageState = useImageState();
+  
+  const editorElement = ref<HTMLDivElement | null>(null);
+
+  watch(() => imageState.image,
+    (newImage) => {
+      if (newImage && editorElement.value) {
+        const container = document.createElement('div');
+        editorElement.value.appendChild(container);
+        createApp({
+          render: () => h(ImageElement, { image: newImage }),
+        }).mount(container);
+      }
+    }
+  )
 </script>
 
 <template>
@@ -8,8 +28,11 @@
     <EditorToolbar/>
     <div class="main-editor-container">
       <EditorTitle/>
-      <div id="editor-main"
-           contenteditable="true">
+      <div
+        id="editor-main"
+        contenteditable="true"
+        ref="editorElement"
+      >
       </div>
     </div>
   </div>
