@@ -7,13 +7,14 @@
   import { ref, createApp, watch, h } from 'vue';
 
   const imageState = useImageState();
-  
+
   const editorElement = ref<HTMLDivElement | null>(null);
 
   watch(() => imageState.image,
     (newImage) => {
       if (newImage && editorElement.value) {
         const container = document.createElement('div');
+        container.classList.add('image-container');
         editorElement.value.appendChild(container);
         createApp({
           render: () => h(ImageElement, { image: newImage }),
@@ -47,5 +48,8 @@
     min-height: 560px;
     padding: 0 30px;
     outline: none;
+  }
+  .image-container {
+    width: 100%;
   }
 </style>

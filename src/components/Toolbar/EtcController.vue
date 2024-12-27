@@ -29,8 +29,6 @@
       setImage(image);
     }
   }
-
-
 </script>
 
 <template>

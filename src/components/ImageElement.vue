@@ -1,38 +1,48 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
+  import ImageEditor from './ImageEditor.vue';
 
-    const isImageClicked = ref(false);
+  import { ref } from 'vue';
 
-    // Props 선언
-    interface Props {
-        image: HTMLImageElement;
-    }
+  const isImageClicked = ref(false);
 
-    const props = defineProps<Props>();
+  const isEditorOpen = ref(false);
 
-    const imageClicked = () => {
-        isImageClicked.value = true;
-    }
+  // Props 선언
+  interface Props {
+    image: HTMLImageElement;
+  }
+
+  const props = defineProps<Props>();
+
+  const imageClicked = () => {
+    isImageClicked.value = true;
+  }
+
+  const editorOpenHandler = (booleanValue: boolean) => {
+    isEditorOpen.value = booleanValue;
+  }
 </script>
 
 <template>
+  <ImageEditor v-if="isEditorOpen" :editorOpenHandler="editorOpenHandler"/>
     <ul v-if="isImageClicked">
-        <li>
-            <button 
-                type="button"
-                class="image-edit-button"
-            >
-            imageEdit
-            </button>
-        </li>
+      <li>
+        <button
+          type="button"
+          class="image-edit-button"
+          @click="editorOpenHandler(true)"
+        >
+        imageEdit
+        </button>
+      </li>
     </ul>
     <img
-        :src="props.image.src"
-        alt="Uploaded image"
-        @click="imageClicked"
+      :src="props.image.src"
+      alt="Uploaded image"
+      @click="imageClicked"
     >
 </template>
 
 <style>
-    
+
 </style>
